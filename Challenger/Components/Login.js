@@ -4,7 +4,8 @@ var {
   View,
   Text,
   Navigator,
-  StyleSheet
+  StyleSheet,
+  TextInput
 } = React;
 
 var styles = StyleSheet.create({
@@ -24,13 +25,46 @@ var styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  searchInput: {
+    height: 50,
+    padding: 4,
+    marginRight: 5,
+    fontSize: 23,
+    borderWidth: 1,
+    borderColor: 'grey',
+    borderRadius: 8,
+    color: 'black'
+  }
 });
 
 class Login extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      username: '',
+      isLoading: false,
+      error: false
+    }
+  }
+
+  handleChange(event) {
+    this.setState({
+      username: event.nativeEvent.text //get content from textinput
+    });
+  }
+
   render() {
     return(
       <View style={styles.container}>
         <Text style={styles.welcome}> Fuck you </Text>
+
+        <TextInput
+          style={styles.searchInput}
+          value={this.state.username}
+          onChange={this.handleChange.bind(this)} />
+
+        <Text style={styles.instructions}> {this.state.username} </Text>
+
       </View>
     );
   }
