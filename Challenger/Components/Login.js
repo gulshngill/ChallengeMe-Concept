@@ -28,12 +28,13 @@ var styles = StyleSheet.create({
   searchInput: {
     height: 50,
     padding: 4,
-    marginRight: 5,
+    marginRight: 50,
+    marginLeft: 50,
     fontSize: 23,
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: 'black',
     borderRadius: 8,
-    color: 'black'
+    color: 'black' /**text color**/
   }
 });
 
@@ -43,27 +44,40 @@ class Login extends React.Component {
     this.state = {
       username: '',
       isLoading: false,
+      password: '',
       error: false
     }
   }
 
   handleChange(event) {
     this.setState({
-      username: event.nativeEvent.text //get content from textinput
+      username: event.nativeEvent.text, //get content from textinput
+    });
+  }
+
+  handleChangePwd(event) {
+    this.setState({
+      password: event.nativeEvent.text, //get content from textinput
     });
   }
 
   render() {
     return(
       <View style={styles.container}>
-        <Text style={styles.welcome}> Fuck you </Text>
+        <Text style={styles.welcome}> Fuck you {this.state.username} </Text>
+        <Text style={styles.welcome}> {this.state.password} </Text>
 
         <TextInput
           style={styles.searchInput}
           value={this.state.username}
           onChange={this.handleChange.bind(this)} />
 
-        <Text style={styles.instructions}> {this.state.username} </Text>
+        <TextInput
+          secureTextEntry={true}
+          style={styles.searchInput}
+          margin={50}
+          value={this.state.password}
+          onChange={this.handleChangePwd.bind(this)} />
 
       </View>
     );
