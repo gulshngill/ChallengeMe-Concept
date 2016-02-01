@@ -1,35 +1,38 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-'use strict';
-import React, {
+var React = require('react-native')
+var Login = require('./Components/Login')
+
+var {
   AppRegistry,
   Component,
   StyleSheet,
   Text,
+  Navigator,
   View
-} from 'react-native';
+} = React;
 
-class Challenger extends Component {
+class Challenger extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+        <Navigator
+          initialRoute={{name: 'Login', component: Login}}
+          configureScene={() => {
+            return Navigator.SceneConfigs.FloatFromRight;
+          }}
+
+          renderScene={(route, navigator) => {
+              // count the number of func calls
+              console.log(route, navigator);
+
+              if (route.component) {
+                return React.createElement(route.component, { navigator });
+              }
+          }}
+        />
     );
   }
 }
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

@@ -5,7 +5,8 @@ var {
   Text,
   Navigator,
   StyleSheet,
-  TextInput
+  TextInput,
+  TouchableHighlight
 } = React;
 
 var styles = StyleSheet.create({
@@ -15,8 +16,8 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
+  header: {
+    fontSize: 35,
     textAlign: 'center',
     margin: 10,
   },
@@ -35,6 +36,25 @@ var styles = StyleSheet.create({
     borderColor: 'black',
     borderRadius: 8,
     color: 'black' /**text color**/
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#111',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 45,
+    flexDirection: 'row',
+    backgroundColor: 'teal',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    marginTop: 10,
+    marginLeft: 75,
+    marginRight: 75,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
   }
 });
 
@@ -64,8 +84,8 @@ class Login extends React.Component {
   render() {
     return(
       <View style={styles.container}>
-        <Text style={styles.welcome}> Fuck you {this.state.username} </Text>
-        <Text style={styles.welcome}> {this.state.password} </Text>
+        <Text style={styles.header}> Fuck you {this.state.username} </Text>
+        <Text style={styles.header}> {this.state.password} </Text>
 
         <TextInput
           style={styles.searchInput}
@@ -73,11 +93,18 @@ class Login extends React.Component {
           onChange={this.handleChange.bind(this)} />
 
         <TextInput
+          margin={40}
           secureTextEntry={true}
           style={styles.searchInput}
-          margin={50}
           value={this.state.password}
           onChange={this.handleChangePwd.bind(this)} />
+
+          <TouchableHighlight
+            style={styles.button}
+            /**onPress={this.handleSubmit.bind(this)}**/
+            underlayColor="white">
+              <Text style={styles.buttonText}>SEARCH</Text>
+          </TouchableHighlight>
 
       </View>
     );
