@@ -103,7 +103,7 @@ class Login extends React.Component {
             style={styles.button}
             /**onPress={this.handleSubmit.bind(this)}**/
             underlayColor="white">
-              <Text style={styles.buttonText}>SEARCH</Text>
+              <Text style={styles.buttonText}>LOG IN</Text>
           </TouchableHighlight>
 
       </View>
