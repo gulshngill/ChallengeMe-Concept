@@ -9,6 +9,15 @@ var {
   TouchableHighlight
 } = React;
 
+var styles = StyleSheet.create({
+  backgroundImage: {
+    backgroundColor: 'white'
+  },
+
+});
+
+
+
 class SignUp extends React.Component {
   constructor(props){
     super(props)
@@ -21,7 +30,6 @@ class SignUp extends React.Component {
       error: false
     }
   }
-
   handleChange(event) {
     this.setState({
       username: event.nativeEvent.text, //get content from textinput
@@ -45,4 +53,14 @@ class SignUp extends React.Component {
       email: event.nativeEvent.text, //get content from textinput
     });
   }
-}
+
+  render() {
+    return(
+      <View style={styles.backgroundImage}>
+        <Text textAlign='center'> Sign Up </Text>
+      </View>
+    );
+  }
+};
+
+module.exports= SignUp;

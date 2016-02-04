@@ -1,5 +1,7 @@
 var React = require('react-native')
 var Home = require('./Home')
+var SignUp = require('./SignUp')
+var bg = require('../img/bg.png')
 
 var {
   View,
@@ -7,7 +9,8 @@ var {
   Navigator,
   StyleSheet,
   TextInput,
-  TouchableHighlight
+  TouchableHighlight,
+  Image
 } = React;
 
 var styles = StyleSheet.create({
@@ -15,12 +18,14 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    resizeMode: 'cover',
+    //backgroundColor: '#F5FCFF',
   },
   header: {
     fontSize: 35,
     textAlign: 'center',
     margin: 10,
+
   },
   instructions: {
     textAlign: 'center',
@@ -56,6 +61,13 @@ var styles = StyleSheet.create({
     marginRight: 75,
     alignSelf: 'stretch',
     justifyContent: 'center'
+  },
+  backgroundImage: {
+    resizeMode: 'cover',
+    // justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: -50,
+    marginBottom: -20
   }
 });
 
@@ -90,13 +102,22 @@ class Login extends React.Component {
       });
   }
 
+  toSignUp() {
+    this.props.navigator.push({
+        title: 'SIGN UP',
+        component: SignUp,
+        /**passProps: {userInfo: res} **/
+      });
+  }
+
   render() {
     return(
-      <View style={styles.container}>
-        <Text style={styles.header}> Fuck you {this.state.username} </Text>
-        <Text style={styles.header}> {this.state.password} </Text>
+      //<Image source={bg} style={styles.backgroundImage}>
+      <Image style={styles.container}>
+        <Text style={styles.header}> LOGIN </Text>
 
         <TextInput
+          marginTop={40}
           style={styles.searchInput}
           value={this.state.username}
           onChange={this.handleChange.bind(this)} />
@@ -112,10 +133,16 @@ class Login extends React.Component {
             style={styles.button}
             onPress={this.handleSubmit.bind(this)}
             underlayColor="white">
-              <Text style={styles.buttonText}>LOG IN</Text>
+              <Text style={styles.buttonText}>LOGIN</Text>
           </TouchableHighlight>
 
-      </View>
+          <TouchableHighlight
+            onPress={this.toSignUp.bind(this)}
+            underlayColor="white">
+              <Text fontSize={12}>New user? Press here to register.</Text>
+          </TouchableHighlight>
+
+      </Image>
     );
   }
 
