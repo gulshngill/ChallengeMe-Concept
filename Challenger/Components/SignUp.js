@@ -16,6 +16,13 @@ var styles = StyleSheet.create({
     backgroundColor: 'white'
   },
 
+  header: {
+    // color: 'red',
+    textAlign: 'center',
+    fontSize: 30,
+    marginTop: 30,
+  },
+
 });
 
 
@@ -58,11 +65,13 @@ class SignUp extends React.Component {
 
   render() {
     return(
-      <Image style={styles.backgroundImage}>
-        <ScrollView>
-          <Text textAlign='center'> Sign Up </Text>
-        </ScrollView>
-      </Image>
+      <ScrollView>
+        <Image style={styles.backgroundImage}>
+          <Text style={styles.header}> Sign Up </Text>
+
+
+        </Image>
+      </ScrollView>
     );
   }
 };
