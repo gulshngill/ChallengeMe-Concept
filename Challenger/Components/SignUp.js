@@ -6,7 +6,9 @@ var {
   Navigator,
   StyleSheet,
   TextInput,
-  TouchableHighlight
+  TouchableHighlight,
+  Image,
+  ScrollView
 } = React;
 
 var styles = StyleSheet.create({
@@ -56,9 +58,11 @@ class SignUp extends React.Component {
 
   render() {
     return(
-      <View style={styles.backgroundImage}>
-        <Text textAlign='center'> Sign Up </Text>
-      </View>
+      <Image style={styles.backgroundImage}>
+        <ScrollView>
+          <Text textAlign='center'> Sign Up </Text>
+        </ScrollView>
+      </Image>
     );
   }
 };
