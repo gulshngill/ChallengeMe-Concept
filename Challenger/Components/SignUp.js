@@ -8,7 +8,6 @@ var {
   TextInput,
   TouchableHighlight,
   Image,
-  ScrollView
 } = React;
 
 var styles = StyleSheet.create({
@@ -21,6 +20,36 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     marginTop: 30,
+  },
+  searchInput: {
+    height: 50,
+    padding: 4,
+    marginRight: 50,
+    marginLeft: 50,
+    fontSize: 23,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 8,
+    color: 'black' /**text color**/
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#111',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 45,
+    flexDirection: 'row',
+    backgroundColor: 'teal',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    marginTop: 10,
+    marginLeft: 75,
+    marginRight: 75,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
   },
 
 });
@@ -57,7 +86,7 @@ class SignUp extends React.Component {
     });
   }
 
-  handleChangeEmail(event) {
+  handleEmail(event) {
     this.setState({
       email: event.nativeEvent.text, //get content from textinput
     });
@@ -65,13 +94,46 @@ class SignUp extends React.Component {
 
   render() {
     return(
-      <ScrollView>
+      <View>
         <Image style={styles.backgroundImage}>
           <Text style={styles.header}> Sign Up </Text>
 
+          <TextInput
+            marginTop={40}
+            style={styles.searchInput}
+            value={this.state.email}
+            onChange={this.handleEmail.bind(this)} />
+
+          <TextInput
+            marginTop={40}
+            style={styles.searchInput}
+            value={this.state.username}
+            onChange={this.handleChange.bind(this)} />
+
+          <TextInput
+            marginTop={40}
+            secureTextEntry={true}
+            style={styles.searchInput}
+            value={this.state.password}
+            onChange={this.handleChangePwd.bind(this)} />
+
+          <TextInput
+            marginTop={40}
+            secureTextEntry={true}
+            style={styles.searchInput}
+            value={this.state.confirmPassword}
+            onChange={this.handleChangeConPwd.bind(this)} />
+
+            <TouchableHighlight
+              style={styles.button}
+              //onPress={this.handleSubmit.bind(this)}
+              underlayColor="white">
+                <Text style={styles.buttonText}>SIGN UP</Text>
+            </TouchableHighlight>
+
 
         </Image>
-      </ScrollView>
+      </View>
     );
   }
 };
