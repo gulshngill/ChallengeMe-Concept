@@ -51,6 +51,9 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
+  backBtn: {
+    marginTop: 30
+  }
 
 });
 
@@ -92,10 +95,21 @@ class SignUp extends React.Component {
     });
   }
 
+  handleBack() {
+    this.props.navigator.pop();
+  }
+
   render() {
     return(
       <View>
         <Image style={styles.backgroundImage}>
+
+          <TouchableHighlight
+            style={styles.backBtn}
+            onPress={this.handleBack.bind(this)}>
+            <Text style={styles.buttonText}>Back</Text>
+          </TouchableHighlight>
+
           <Text style={styles.header}> Sign Up </Text>
 
           <TextInput
