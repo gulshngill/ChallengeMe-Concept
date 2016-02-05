@@ -22,7 +22,7 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'stretch',
-    resizeMode: 'cover',
+    //resizeMode: 'cover',
     width:null,
     height: null,
 
