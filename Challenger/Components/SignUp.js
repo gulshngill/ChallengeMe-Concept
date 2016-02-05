@@ -1,4 +1,5 @@
 var React = require('react-native')
+var Home = require('./Home')
 
 var {
   View,
@@ -99,6 +100,14 @@ class SignUp extends React.Component {
     this.props.navigator.pop();
   }
 
+  handleSubmit() {
+    this.props.navigator.push({
+        title: 'HOME',
+        component: Home,
+        /**passProps: {userInfo: res} **/
+      });
+  }
+
   render() {
     return(
       <View>
@@ -140,7 +149,7 @@ class SignUp extends React.Component {
 
             <TouchableHighlight
               style={styles.button}
-              //onPress={this.handleSubmit.bind(this)}
+              onPress={this.handleSubmit.bind(this)}
               underlayColor="white">
                 <Text style={styles.buttonText}>SIGN UP</Text>
             </TouchableHighlight>
