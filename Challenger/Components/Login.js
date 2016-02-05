@@ -1,7 +1,10 @@
 var React = require('react-native')
 var Home = require('./Home')
 var SignUp = require('./SignUp')
-var bg = require('../img/bg.png')
+var bg = require('../img/cleague_bg.png')
+var loginwith = require('../img/loginwith.png')
+var fb = require('../img/fb.png')
+var google = require('../img/G.png')
 
 var {
   View,
@@ -18,14 +21,19 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'stretch',
     resizeMode: 'cover',
-    //backgroundColor: '#F5FCFF',
+    width:null,
+    height: null,
+
   },
   header: {
     fontSize: 35,
     textAlign: 'center',
-    margin: 10,
-
+    marginTop: -220,
+    marginLeft: 95,
+    position: 'absolute',
+    color: '#FFF'
   },
   instructions: {
     textAlign: 'center',
@@ -33,41 +41,70 @@ var styles = StyleSheet.create({
     marginBottom: 5,
   },
   searchInput: {
-    height: 50,
-    padding: 4,
-    marginRight: 50,
-    marginLeft: 50,
-    fontSize: 23,
+    position: 'absolute',
+    height: 42,
+    width: 235,
+    padding: 10,
+    marginLeft: 80,
+    fontSize: 12,
     borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 8,
-    color: 'black' /**text color**/
+    borderColor: 'grey',
+    borderRadius: 4,
+    color: 'black', /**text color**/
+    backgroundColor: 'white'
   },
   buttonText: {
-    fontSize: 18,
-    color: '#111',
+    fontSize: 14,
+    color: '#FFF',
     alignSelf: 'center'
   },
+
   button: {
-    height: 45,
+    position: 'absolute',
+    height: 35,
+    width: 105,
+    left: 55,
+    right: 50,
     flexDirection: 'row',
-    backgroundColor: 'teal',
-    borderColor: 'white',
+    shadowColor: 'black',
+    backgroundColor: '#009688',
+    borderColor: 'transparent',
+    shadowOffset: {width: 5, height: 5},
     borderWidth: 1,
-    borderRadius: 8,
+    borderRadius: 0,
     marginBottom: 10,
-    marginTop: 10,
+    marginTop: 40,
     marginLeft: 75,
     marginRight: 75,
     alignSelf: 'stretch',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   },
-  backgroundImage: {
-    resizeMode: 'cover',
-    // justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: -50,
-    marginBottom: -20
+  loginwith: {
+    marginTop: 140,
+    marginLeft: 40,
+    position: 'absolute'
+  },
+  newUser: {
+    marginTop: 115,
+    marginLeft: 75,
+    position: 'absolute'
+  },
+  forgotPassword: {
+    marginTop: 115,
+    marginLeft: 215,
+    position: 'absolute'
+  },
+  google: {
+    marginTop: 195,
+    marginLeft: 195,
+
+    position: 'absolute'
+  },
+  facebook: {
+    marginTop: 195,
+    marginLeft: 140,
+    position: 'absolute'
   }
 });
 
@@ -112,37 +149,55 @@ class Login extends React.Component {
 
   render() {
     return(
-      //<Image source={bg} style={styles.backgroundImage}>
-      <Image style={styles.container}>
-        <Text style={styles.header}> LOGIN </Text>
+        <Image source={bg} style={styles.container}>
+          {/*<Image source={bg} style={styles.backgroundImage}/>*/}
+          <Text style={styles.header}> Challenger </Text>
 
-        <TextInput
-          marginTop={40}
-          style={styles.searchInput}
-          value={this.state.username}
-          onChange={this.handleChange.bind(this)} />
+          <TextInput
+            style={styles.searchInput}
+            value={this.state.username}
+            placeholder="username"
+            marginTop={-98}
+            onChange={this.handleChange.bind(this)} />
 
-        <TextInput
-          margin={40}
-          secureTextEntry={true}
-          style={styles.searchInput}
-          value={this.state.password}
-          onChange={this.handleChangePwd.bind(this)} />
+          <TextInput
+            secureTextEntry={true}
+            style={styles.searchInput}
+            value={this.state.password}
+            placeholder="password"
+            marginTop={-28}
+            onChange={this.handleChangePwd.bind(this)} />
 
-          <TouchableHighlight
-            style={styles.button}
-            onPress={this.handleSubmit.bind(this)}
-            underlayColor="white">
-              <Text style={styles.buttonText}>LOGIN</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight
-            onPress={this.toSignUp.bind(this)}
-            underlayColor="white">
-              <Text fontSize={12}>New user? Press here to register.</Text>
-          </TouchableHighlight>
-
-      </Image>
+            <TouchableHighlight
+              style={styles.button}
+              onPress={this.handleSubmit.bind(this)}
+              underlayColor="white">
+                <Text style={styles.buttonText}>LOGIN</Text>
+            </TouchableHighlight>
+            <Image source={loginwith} style={styles.loginwith}/>
+            <TouchableHighlight
+              onPress={this.toSignUp.bind(this)}
+              underlayColor="white"
+              style={styles.newUser}>
+                <Text style={styles.buttonText}>New user</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={this.toSignUp.bind(this)}
+              underlayColor="white"
+              style={styles.forgotPassword}>
+                <Text style={styles.buttonText}>Forgot Password?</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={this.toSignUp.bind(this)}
+              style={styles.facebook}>
+                <Image source={fb}/>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={this.toSignUp.bind(this)}
+              style={styles.google}>
+                <Image source={google} />
+            </TouchableHighlight>
+        </Image>
     );
   }
 
