@@ -180,7 +180,7 @@ class Login extends React.Component {
             <TouchableHighlight
               style={styles.button}
               onPress={this.handleSubmit.bind(this)}
-              underlayColor="white">
+              underlayColor="#00CDBA">
                 <Text style={styles.buttonText}>LOGIN</Text>
             </TouchableHighlight>
             <Image source={loginwith} style={styles.loginwith}/>
