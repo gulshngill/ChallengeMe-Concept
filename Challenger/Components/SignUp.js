@@ -1,5 +1,11 @@
 var React = require('react-native')
 var Home = require('./Home')
+var bg = require('../img/cleague_bg.png')
+var signupwith = require('../img/signupwith.png')
+var back = require('../img/back.png')
+var fb = require('../img/fb.png')
+var google = require('../img/G.png')
+import {Dimensions} from 'react-native';
 
 var {
   View,
@@ -12,51 +18,107 @@ var {
 } = React;
 
 var styles = StyleSheet.create({
-  backgroundImage: {
-    backgroundColor: 'white'
+  backBtn:{
+    position: 'absolute',
+    marginTop: vh(-278),
+    marginLeft: vw(27),
   },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    //resizeMode: 'cover',
+    width:null,
+    height: null,
 
+  },
   header: {
-    // color: 'red',
+    fontSize: vw(30),
     textAlign: 'center',
-    fontSize: 30,
-    marginTop: 30,
+    marginTop: vh(-290),
+    marginLeft: vw(127),
+    position: 'absolute',
+    color: '#FFF'
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
   searchInput: {
-    height: 50,
-    padding: 4,
-    marginRight: 50,
-    marginLeft: 50,
-    fontSize: 23,
+    position: 'absolute',
+    height: vh(42),
+    width: vw(235),
+    padding: 10,
+    marginLeft: vw(80),
+    fontSize: 12,
     borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 8,
-    color: 'black' /**text color**/
+    borderColor: 'grey',
+    borderRadius: 4,
+    color: 'black', /**text color**/
+    backgroundColor: 'white'
   },
   buttonText: {
-    fontSize: 18,
-    color: '#111',
+    fontSize: vw(14),
+    color: '#FFF',
     alignSelf: 'center'
   },
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'teal',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    marginLeft: 75,
-    marginRight: 75,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-  backBtn: {
-    marginTop: 30
-  }
 
+  button: {
+    position: 'absolute',
+    height: vh(35),
+    width: vw(105),
+    flexDirection: 'row',
+    shadowColor: 'black',
+    backgroundColor: '#009688',
+    borderColor: 'transparent',
+    shadowOffset: {width: 5, height: 5},
+    borderWidth: 1,
+    borderRadius: 0,
+    marginTop: vh(108),
+    marginLeft: vw(140),
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+
+  },
+  loginwith: {
+    height: vh(45),
+    width: vw(290),
+    marginTop: vh(185),
+    marginLeft: vw(50),//40
+    position: 'absolute'
+  },
+  newUser: {
+    marginTop: vh(160),
+    marginLeft: vw(75),
+    position: 'absolute'
+  },
+  forgotPassword: {
+    marginTop: vh(160),
+    marginLeft: vw(215),
+    position: 'absolute'
+  },
+  google: {
+    marginTop: vh(240),
+    marginLeft: vw(205),//195
+
+    position: 'absolute'
+  },
+  facebook: {
+    marginTop: vh(240),
+    marginLeft: vw(150),//140
+    position: 'absolute'
+  }
 });
+
+function vw(width) {
+  return Dimensions.get('window').width * (width / 375);
+}
+
+function vh(height) {
+  return Dimensions.get('window').height * (height / 667);
+}
 
 
 
@@ -110,41 +172,44 @@ class SignUp extends React.Component {
 
   render() {
     return(
-      <View>
-        <Image style={styles.backgroundImage}>
+        <Image source={bg} style={styles.container}>
 
           <TouchableHighlight
             style={styles.backBtn}
             onPress={this.handleBack.bind(this)}>
-            <Text style={styles.buttonText}>Back</Text>
+            <Image source={back}/>
           </TouchableHighlight>
 
           <Text style={styles.header}> Sign Up </Text>
 
           <TextInput
-            marginTop={40}
+            marginTop={vh(27)}
             style={styles.searchInput}
             value={this.state.email}
+            placeholder="email"
             onChange={this.handleEmail.bind(this)} />
 
           <TextInput
-            marginTop={40}
+            marginTop={vh(-180)}
             style={styles.searchInput}
             value={this.state.username}
+            placeholder="username"
             onChange={this.handleChange.bind(this)} />
 
           <TextInput
-            marginTop={40}
+            marginTop={vh(-111)}
             secureTextEntry={true}
             style={styles.searchInput}
             value={this.state.password}
+            placeholder="password"
             onChange={this.handleChangePwd.bind(this)} />
 
           <TextInput
-            marginTop={40}
+            marginTop={vh(-42)}
             secureTextEntry={true}
             style={styles.searchInput}
             value={this.state.confirmPassword}
+            placeholder="confirm password"
             onChange={this.handleChangeConPwd.bind(this)} />
 
             <TouchableHighlight
@@ -154,9 +219,16 @@ class SignUp extends React.Component {
                 <Text style={styles.buttonText}>SIGN UP</Text>
             </TouchableHighlight>
 
-
+            <Image source={signupwith} style={styles.loginwith}/>
+            <TouchableHighlight
+              style={styles.facebook}>
+                <Image source={fb}/>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.google}>
+                <Image source={google} />
+            </TouchableHighlight>
         </Image>
-      </View>
     );
   }
 };

@@ -5,7 +5,9 @@ var bg = require('../img/cleague_bg.png')
 var loginwith = require('../img/loginwith.png')
 var fb = require('../img/fb.png')
 var google = require('../img/G.png')
-
+import {Dimensions} from 'react-native';
+//375
+//667
 var {
   View,
   Text,
@@ -28,10 +30,10 @@ var styles = StyleSheet.create({
 
   },
   header: {
-    fontSize: 35,
+    fontSize: vw(35),
     textAlign: 'center',
-    marginTop: -220,
-    marginLeft: 95,
+    marginTop: vh(-220),
+    marginLeft: vw(95),
     position: 'absolute',
     color: '#FFF'
   },
@@ -42,10 +44,10 @@ var styles = StyleSheet.create({
   },
   searchInput: {
     position: 'absolute',
-    height: 42,
-    width: 235,
+    height: vh(42),
+    width: vw(235),
     padding: 10,
-    marginLeft: 80,
+    marginLeft: vw(80),
     fontSize: 12,
     borderWidth: 1,
     borderColor: 'grey',
@@ -54,17 +56,15 @@ var styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   buttonText: {
-    fontSize: 14,
+    fontSize: vw(14),
     color: '#FFF',
     alignSelf: 'center'
   },
 
   button: {
     position: 'absolute',
-    height: 35,
-    width: 105,
-    left: 55,
-    right: 50,
+    height: vh(35),
+    width: vw(105),
     flexDirection: 'row',
     shadowColor: 'black',
     backgroundColor: '#009688',
@@ -72,43 +72,52 @@ var styles = StyleSheet.create({
     shadowOffset: {width: 5, height: 5},
     borderWidth: 1,
     borderRadius: 0,
-    marginBottom: 10,
-    marginTop: 40,
-    marginLeft: 75,
-    marginRight: 75,
+    marginTop: vh(58),
+    marginLeft: vw(140),
     alignSelf: 'stretch',
     justifyContent: 'center',
 
   },
   loginwith: {
-    marginTop: 140,
-    marginLeft: 40,
+    height: vh(45),
+    width: vw(290),
+    marginTop: vh(185),
+    marginLeft: vw(50),//40
     position: 'absolute'
   },
   newUser: {
-    marginTop: 115,
-    marginLeft: 75,
+    marginTop: vh(160),
+    marginLeft: vw(75),
     position: 'absolute'
   },
   forgotPassword: {
-    marginTop: 115,
-    marginLeft: 215,
+    marginTop: vh(160),
+    marginLeft: vw(215),
     position: 'absolute'
   },
   google: {
-    marginTop: 195,
-    marginLeft: 195,
+    marginTop: vh(240),
+    marginLeft: vw(205),//195
 
     position: 'absolute'
   },
   facebook: {
-    marginTop: 195,
-    marginLeft: 140,
+    marginTop: vh(240),
+    marginLeft: vw(150),//140
     position: 'absolute'
   }
 });
 
+function vw(width) {
+  return Dimensions.get('window').width * (width / 375);
+}
+
+function vh(height) {
+  return Dimensions.get('window').height * (height / 667);
+}
+
 class Login extends React.Component {
+
   constructor(props){
     super(props)
     this.state = {
@@ -157,7 +166,7 @@ class Login extends React.Component {
             style={styles.searchInput}
             value={this.state.username}
             placeholder="username"
-            marginTop={-98}
+            marginTop={vh(-80)}
             onChange={this.handleChange.bind(this)} />
 
           <TextInput
@@ -165,7 +174,7 @@ class Login extends React.Component {
             style={styles.searchInput}
             value={this.state.password}
             placeholder="password"
-            marginTop={-28}
+            marginTop={vh(-10)}
             onChange={this.handleChangePwd.bind(this)} />
 
             <TouchableHighlight
@@ -188,12 +197,10 @@ class Login extends React.Component {
                 <Text style={styles.buttonText}>Forgot Password?</Text>
             </TouchableHighlight>
             <TouchableHighlight
-              onPress={this.toSignUp.bind(this)}
               style={styles.facebook}>
                 <Image source={fb}/>
             </TouchableHighlight>
             <TouchableHighlight
-              onPress={this.toSignUp.bind(this)}
               style={styles.google}>
                 <Image source={google} />
             </TouchableHighlight>
