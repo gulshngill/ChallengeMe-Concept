@@ -1,6 +1,6 @@
 var React = require('react-native')
 var Login = require('./Components/Login')
-var NavBar = require('rn-navbar');
+
 var {
   AppRegistry,
   Component,
