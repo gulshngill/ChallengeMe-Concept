@@ -36,34 +36,7 @@ var styles = StyleSheet.create({
     marginLeft: 20,
     fontWeight: '500'
   },
-  profile: {
-    position: 'absolute',
-    marginTop:vh(57),
-    marginLeft: vw(16)
-  },
-  username:{
-    position: 'absolute',
-    marginLeft: vw(102),
-    marginTop: vh(67),
-    color: 'white',
-    fontSize: 16
-  },
-  team: {
-    position: 'absolute',
-    marginLeft: vw(101),
-    marginTop: vh(94),
-    color: 'white',
-    fontSize: 20
-  },
 });
-
-function vw(width) {
-  return Dimensions.get('window').width * (width / 375);
-}
-
-function vh(height) {
-  return Dimensions.get('window').height * (height / 667);
-}
 
 class Menu extends React.Component {
   constructor(props){
@@ -79,9 +52,7 @@ class Menu extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.avatar}>
-          <Image style={styles.profile} source={profile}/>
-          <Text style={styles.username}>remi91</Text>
-          <Text style={styles.team}>Immortals FC</Text>
+          <Image source={profile}/>
         </View>
         <ListView
           dataSource={this.state.dataSource}
