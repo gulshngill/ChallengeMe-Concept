@@ -2,6 +2,7 @@ var React = require('react-native')
 var NavigationBar = require('react-native-navbar');
 var bg = require('../img/cleague_bg.png')
 var burger = require('../img/burger.png')
+var dots = require('../img/dots.png')
 const SideMenu = require('react-native-side-menu');
 import {Dimensions} from 'react-native';
 var Menu = require('./Menu')
@@ -25,6 +26,11 @@ var styles = StyleSheet.create({
     //resizeMode: 'cover',
     width:null,
     height: null,
+  },
+  dots: {
+    position: 'absolute',
+    marginLeft: vw(-30),//15
+    marginTop: vh(3)
   },
   burger: {
     position: 'absolute',
@@ -66,8 +72,30 @@ class Template extends React.Component {
       title: this.props.title,
       tintColor: 'white'
     };
-
-    return (
+    var result = (this.props.right) ?
+      <SideMenu menu={menu} disableGestures={true} isOpen={this.state.open}>
+        <View style={styles.container}>
+          <NavigationBar
+            title={titleConfig}
+            leftButton={<TouchableHighlight
+              style={styles.burger}
+              onPress={this.handleBack.bind(this)}>
+              <Image source={burger}/>
+            </TouchableHighlight>}
+            rightButton={<TouchableHighlight
+              style={styles.dots}
+              onPress={this.handleBack.bind(this)}>
+              <Image source={dots}/>
+            </TouchableHighlight>}
+            tintColor='#212121'/>
+            <Image source={bg} style={styles.container}>
+              <ScrollView style={styles.container}>
+                {this.props.children}
+              </ScrollView>
+            </Image>
+        </View>
+      </SideMenu>
+      :
       <SideMenu menu={menu} disableGestures={true} isOpen={this.state.open}>
         <View style={styles.container}>
           <NavigationBar
@@ -85,14 +113,15 @@ class Template extends React.Component {
             </Image>
         </View>
       </SideMenu>
-    );
+    return result;
   }
 
 
 };
 
 Template.PropTypes = {
-  title: React.PropTypes.string.isRequired
+  title: React.PropTypes.string.isRequired,
+  right: React.PropTypes.component
 }
 
 module.exports = Template;
