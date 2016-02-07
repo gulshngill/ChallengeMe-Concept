@@ -158,7 +158,6 @@ class Login extends React.Component {
   render() {
     return(
         <Image source={bg} style={styles.container}>
-          {/*<Image source={bg} style={styles.backgroundImage}/>*/}
           <Text style={styles.header}> Challenger </Text>
 
           <TextInput

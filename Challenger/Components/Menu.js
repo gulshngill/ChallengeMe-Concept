@@ -28,7 +28,7 @@ var styles = StyleSheet.create({
   },
   listTxt: {
     color: 'white',
-    fontSize: 20,
+    fontSize: vw(16),
     marginTop: 10,
     marginLeft: 20,
     fontWeight: '500'
@@ -55,7 +55,7 @@ var styles = StyleSheet.create({
     fontSize: vw(20)
   },
   bro: {
-    //backgroundColor:'black'
+    padding: 4
   }
 });
 
@@ -95,7 +95,6 @@ class Menu extends React.Component {
 };
 
 class MenuItem extends React.Component {
-
   render(){
     return(
       <TouchableHighlight style={styles.bro} underlayColor='#383838'>
@@ -107,7 +106,7 @@ class MenuItem extends React.Component {
 }
 
 MenuItem.PropTypes = {
-  itemName: React.PropTypes.object.isRequired
+  itemName: React.PropTypes.string.isRequired
 }
 
 module.exports = MenuItem;
