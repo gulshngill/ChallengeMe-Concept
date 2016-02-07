@@ -26,9 +26,6 @@ var styles = StyleSheet.create({
     height: Dimensions.get('window').height * (17/64),
     backgroundColor: '#616161'
   },
-  profile: {
-
-  },
   listTxt: {
     color: 'white',
     fontSize: 20,
@@ -39,22 +36,27 @@ var styles = StyleSheet.create({
   profile: {
     position: 'absolute',
     marginTop:vh(57),
-    marginLeft: vw(16)
+    marginLeft: vw(16),
+    height: vh(64),
+    width: vw(64),
   },
   username:{
     position: 'absolute',
     marginLeft: vw(102),
     marginTop: vh(67),
     color: 'white',
-    fontSize: 16
+    fontSize: vw(16)
   },
   team: {
     position: 'absolute',
     marginLeft: vw(101),
     marginTop: vh(94),
     color: 'white',
-    fontSize: 20
+    fontSize: vw(20)
   },
+  bro: {
+    //backgroundColor:'black'
+  }
 });
 
 function vw(width) {
@@ -70,7 +72,7 @@ class Menu extends React.Component {
     super(props);
     this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})
     this.state = {
-      dataSource: this.ds.cloneWithRows(['row 1', 'row 2'])
+      dataSource: this.ds.cloneWithRows(['Home', 'Team'])
     }
   }
 
@@ -85,11 +87,28 @@ class Menu extends React.Component {
         </View>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text style={styles.listTxt}>{rowData}</Text>}
+          renderRow={(rowData) =>  <MenuItem itemName={rowData}/>}
         />
       </View>
     );
   }
 };
 
+class MenuItem extends React.Component {
+
+  render(){
+    return(
+      <TouchableHighlight style={styles.bro} underlayColor='#383838'>
+        <Text style={styles.listTxt}>{this.props.itemName}</Text>
+      </TouchableHighlight>
+    )
+  }
+
+}
+
+MenuItem.PropTypes = {
+  itemName: React.PropTypes.object.isRequired
+}
+
+module.exports = MenuItem;
 module.exports = Menu;
