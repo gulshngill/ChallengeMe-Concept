@@ -1,13 +1,13 @@
 var React = require('react-native')
 var Login = require('./Components/Login')
-
+var NavBar = require('rn-navbar');
 var {
   AppRegistry,
   Component,
   StyleSheet,
   Text,
   Navigator,
-  View
+  View,
 } = React;
 
 
@@ -15,12 +15,12 @@ var {
 class Challenger extends React.Component {
   render() {
     return (
+
         <Navigator
           initialRoute={{name: 'Login', component: Login}}
           configureScene={() => {
             return Navigator.SceneConfigs.FloatFromRight;
           }}
-
           renderScene={(route, navigator) => {
               // count the number of func calls
               console.log(route, navigator);

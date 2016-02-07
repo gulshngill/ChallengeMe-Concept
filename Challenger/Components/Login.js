@@ -6,8 +6,7 @@ var loginwith = require('../img/loginwith.png')
 var fb = require('../img/fb.png')
 var google = require('../img/G.png')
 import {Dimensions} from 'react-native';
-//375
-//667
+
 var {
   View,
   Text,
@@ -15,7 +14,7 @@ var {
   StyleSheet,
   TextInput,
   TouchableHighlight,
-  Image
+  Image,
 } = React;
 
 var styles = StyleSheet.create({
