@@ -18,9 +18,14 @@ var styles = StyleSheet.create({
     //alignItems: 'center',
     alignSelf: 'stretch',
     //resizeMode: 'cover',
-    width: Dimensions.get('window').width,
+    width: Dimensions.get('window').width*(2/3),
     height: Dimensions.get('window').height
   },
+  avatar: {
+    width: Dimensions.get('window').width*(2/3),
+    height: Dimensions.get('window').height * (17/64),
+    backgroundColor: '#616161'
+  }
 });
 
 class Menu extends React.Component {
@@ -29,7 +34,9 @@ class Menu extends React.Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.avatar}>
 
+        </View>
       </View>
     );
   }
