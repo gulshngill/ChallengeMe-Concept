@@ -1,9 +1,11 @@
 var React = require('react-native')
 var Template = require('./Template')
+var TeamPage = require('./TeamPage')
 
 var {
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableHighlight
 } = React;
 
 var styles = StyleSheet.create({
@@ -14,11 +16,16 @@ var styles = StyleSheet.create({
 });
 
 class Home extends React.Component {
-
+  toTeam(){
+    this.props.navigator.push({
+      title: 'TeamPage',
+      component: TeamPage
+    });
+  }
   render(){
     return(
-      <Template title='Home' right={Template}>
-        
+      <Template title='Home'>
+        <TouchableHighlight onPress={this.toTeam.bind(this)}><Text style={styles.text}>Team</Text></TouchableHighlight>
       </Template>
     )
   }

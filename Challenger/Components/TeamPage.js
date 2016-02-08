@@ -1,29 +1,59 @@
 var React = require('react-native')
-var NavigationBar = require('react-native-navbar');
-var bg = require('../img/cleague_bg.png')
-var burger = require('../img/burger.png')
+var Template = require('./Template')
+var teamlogo = require('../img/teamlogo01.png')
+var line = require('../img/line.png')
 import {Dimensions} from 'react-native';
 
 var {
-  View,
   Text,
-  Navigator,
   StyleSheet,
-  Image,
-  TouchableHighlight
+  Image
 } = React;
 
 var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignSelf: 'stretch',
-    width:null,
-    height: null,
+  header: {
+    color: 'white',
+    marginTop: vh(11),
+    marginLeft: vw(125),
+    fontSize: vw(20),
+    fontWeight: '500',
   },
-  burger: {
+  motto: {
+    color: 'white',
+    marginTop: vh(12),
+    marginLeft: vw(123),
+    fontSize: 15,
+    fontWeight: '400',
+  },
+  locationTxt: {
+    color: 'white',
+    marginTop: vh(12),
+    marginLeft: vw(110),
+    fontSize: 12,
+    fontWeight: '400',
+  },
+  winsTxt: {
+    color: 'white',
+    marginTop: vh(12),
+    marginLeft: vw(127),
+    fontSize: 12,
+    fontWeight: '400',
+  },
+  team: {
     position: 'absolute',
-    marginLeft: vw(15),
-    marginTop: vh(3)
+    marginLeft: vw(101),
+    marginTop: vh(94),
+    color: 'white',
+    fontSize: vw(20)
+  },
+  image: {
+    alignItems: 'center',
+    marginTop: vh(22),
+    marginLeft: vw(110),
+  },
+  line: {
+    marginTop: vh(8),
+    marginLeft: vw(55),
   }
 });
 
@@ -35,36 +65,22 @@ function vh(height) {
   return Dimensions.get('window').height * (height / 667);
 }
 
-class Home extends React.Component {
-  handleBack() {
-    this.props.navigator.pop();
+
+class TeamPage extends React.Component {
+
+  render(){
+    return(
+      <Template title='Team' right={Template}>
+        <Image source={teamlogo} style={styles.image} />
+        <Text style={styles.header}>Immortals FC</Text>
+        <Text style={styles.motto}>"United we stand!"</Text>
+        <Text style={styles.locationTxt}>Location: Gombak, Selangor</Text>
+        <Text style={styles.winsTxt}>Tournament Wins: 2</Text>
+        <Image source={line} style={styles.line}/>
+      </Template>
+    )
   }
 
-  render() {
-    const rightButtonConfig = {
-      title: 'Back',
-      handler: () => this.props.navigator.pop(),
-    };
+}
 
-    const titleConfig = {
-      title: 'Team',
-      tintColor: 'white'
-    };
-
-    return (
-      <Image source={bg} style={styles.container}>
-        <NavigationBar
-          title={titleConfig}
-          leftButton={<TouchableHighlight
-            style={styles.burger}
-            onPress={this.handleBack.bind(this)}>
-            <Image source={burger}/>
-          </TouchableHighlight>}
-          tintColor='#212121'/>
-      </Image>
-    );
-  }
-
-
-};
 module.exports = TeamPage;
