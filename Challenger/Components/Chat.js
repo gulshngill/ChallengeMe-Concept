@@ -2,12 +2,14 @@ var React = require('react-native')
 var Template = require('./Template')
 var TeamPage = require('./TeamPage')
 var GiftedMessenger = require('react-native-gifted-messenger')
+var mrskeletal = require('../img/mrskeletal.png')
 var {Dimensions} = React;
 
 var {
   Text,
   StyleSheet,
-  TouchableHighlight
+  TouchableHighlight,
+  Image
 } = React;
 
 var styles = StyleSheet.create({
@@ -20,8 +22,9 @@ var styles = StyleSheet.create({
 class Chat extends React.Component {
   getMessages() {
     return [
-      {text: 'Sathia?', name: 'Osmania', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2015, 0, 16, 19, 0)},
-      {text: "Mathia!", name: 'Cocksucker', image: null, position: 'right', date: new Date(2015, 0, 17, 19, 0)},
+      {text: 'Guys...training tomorrow?', name: 'sathiaK7', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2016, 0, 12, 1, 0)},
+      {text: "Can't la bro. gf wants to fuck me in the ass with a 10-inch dildo tomorrow :(", name: 'MrSkeletal', image: mrskeletal, position: 'left', date: new Date(2016, 0, 13, 1, 0)},
+      {text: 'ROFL!! Have fun :P', name: 'sathiaK7', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2016, 0, 13, 1, 0)},
     ];
   }
   handleSend(message = {}, rowID = null) {
