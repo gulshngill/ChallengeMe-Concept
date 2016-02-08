@@ -15,7 +15,6 @@ var {
 class Challenger extends React.Component {
   render() {
     return (
-
         <Navigator
           initialRoute={{name: 'Login', component: Login}}
           configureScene={() => {
