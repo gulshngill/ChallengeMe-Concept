@@ -1,5 +1,6 @@
 var React = require('react-native')
 var profile = require('../img/profilepic.png');
+var Home = require('./Home')
 
 import {Dimensions} from 'react-native';
 var {
@@ -72,7 +73,7 @@ class Menu extends React.Component {
     super(props);
     this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})
     this.state = {
-      dataSource: this.ds.cloneWithRows(['Home', 'Team'])
+      dataSource: this.ds.cloneWithRows(['Home', 'Team', 'Chat'])
     }
   }
 
@@ -95,9 +96,21 @@ class Menu extends React.Component {
 };
 
 class MenuItem extends React.Component {
+
+  toHome() {
+    this.props.navigator.push({
+      title: 'Home',
+      component: Home
+    });
+  }
+
+  fakubrader() {
+    {this.props.itemName === 'Home' ? this.toHome().bind(this) : console.log('like a somebody')}
+  }
+
   render(){
     return(
-      <TouchableHighlight style={styles.bro} underlayColor='#383838'>
+      <TouchableHighlight style={styles.bro} underlayColor='#383838' onPress={this.fakubrader.bind(this)}>
         <Text style={styles.listTxt}>{this.props.itemName}</Text>
       </TouchableHighlight>
     )

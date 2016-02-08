@@ -21,10 +21,6 @@ var {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    //justifyContent: 'center',
-    //alignItems: 'center',
-    //alignSelf: 'stretch',
-    //resizeMode: 'cover',
     width:null,
     height: null,
   },

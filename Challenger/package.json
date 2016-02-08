@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "react-native": "^0.18.1",
+    "react-native-collapsible": "^0.5.5",
     "react-native-custom-navigation": "^0.2.2",
     "react-native-dropdown": "0.0.6",
     "react-native-gifted-messenger": "0.0.17",

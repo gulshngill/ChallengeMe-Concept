@@ -23,8 +23,9 @@ class Chat extends React.Component {
   getMessages() {
     return [
       {text: 'Guys...training tomorrow?', name: 'sathiaK7', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2016, 0, 12, 1, 0)},
-      {text: "Can't la bro. gf wants to fuck me in the ass with a 10-inch dildo tomorrow :(", name: 'MrSkeletal', image: mrskeletal, position: 'left', date: new Date(2016, 0, 13, 1, 0)},
-      {text: 'ROFL!! Have fun :P', name: 'sathiaK7', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2016, 0, 13, 1, 0)},
+      {text: "Ya boss! im in ", name: 'MrSkeletal', image: mrskeletal, position: 'left', date: new Date(2016, 0, 13, 1, 0)},
+      {text: "Awesome bro, see you tomorrow...", name: 'sathiaK7', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2016, 0, 13, 1, 0)},
+      {text: "How about everyone else? need to book court", name: 'sathiaK7', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2016, 0, 13, 1, 0)},
     ];
   }
   handleSend(message = {}, rowID = null) {
