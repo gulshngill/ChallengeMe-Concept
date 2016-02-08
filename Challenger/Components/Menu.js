@@ -110,7 +110,7 @@ class MenuItem extends React.Component {
 
   render(){
     return(
-      <TouchableHighlight style={styles.bro} underlayColor='#383838' onPress={this.fakubrader.bind(this)}>
+      <TouchableHighlight style={styles.bro} underlayColor='#383838'>
         <Text style={styles.listTxt}>{this.props.itemName}</Text>
       </TouchableHighlight>
     )

@@ -94,7 +94,7 @@ class Template extends React.Component {
       title: 'Back',
       handler: () => this.props.navigator.pop(),
     };
-    const menu = <Menu />;
+    const menu = <Menu navigator={this.props.navigator}/>;
     const titleConfig = {
       title: this.props.title,
       tintColor: 'white',
