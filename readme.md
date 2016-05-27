@@ -1,4 +1,6 @@
-Official Repo of Challenger
+#ChallengeMe/Challenger Concept
 
-Frontend:
-- React Native
+Concept Application of a football/futsal social networking application using React Native.
+iOS only
+
+
